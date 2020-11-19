@@ -1,4 +1,3 @@
-  
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,87 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/addressbook.css">
-    <script defer src="../js/addressbook_form.js"></script>
-    <title>Addressbook Form</title>
+    <title>Address book form</title>
 </head>
-
 <body>
     <header class="header-content header">
         <div class="logo-content">
-            <img src="../assets/logo.jpeg" alt="logo">
+            <img src="../assets/logo.jpeg" alt="">
             <div>
-                <span class="emp-text">ADDRESS</span><br>
-                <span class="emp-text emp-payroll">BOOK</span>
+                <span class="address-text">ADDRESS</span><br>
+                <span class="address-text address-book">BOOK</span>
             </div>
         </div>
     </header>
-    <div class="form-content">
-        <form class="form" action="#" onsubmit="save(event);return false">
-            <div class="form-head">
-                <div class="header-text">PERSON ADDRESS FORM</div>
-                <div>
-                    <a href="../pages/homePage.html"><img class="cancel-img" src="../assets/cancel.jpeg" alt="Cancel image"></a>
-                </div>
+    <div class ="form-content">
+        <form class ="form" action="#" onsubmit="save(event)" onreset="resetForm(event)">
+            <div class ="form-head">
+                <div class="form-header-text">PERSON ADDRESS FORM</div>
+                <div class="cancel-button"><img src="../assets/cancel.jpeg" alt=""></div>
             </div>
             <div class="row-content">
-                <label for="fullname" class="label text">Full Name</label>
-                <input type="text" class="input" id="fullname" name="fullname" required>
+                <label class="label text" for="fullname">Full Name</label>
+                <input class="input" type="text" id="fullName" name="fullName" placeholder="Enter Your Full Name" required>
                 <error-output class="text-error" for="text"></error-output>
             </div>
             <div class="row-content">
-                <label for="tel" class="label text">Phone Number</label>
-                <input type="tel" id="tel" name="tel" class="input">
-                <error-output class="mobno-error" for="tel"></error-output>
+                <label class="label text" for="address">Address</label>
+                <input class="input address-input" type="text" id="address" placeholder="Address" required>
+                <error-output class ="text-error" for="text"></error-output>
+            </div>
+            <div class="select-input-fields">
+                <label class="label text" for="city">City</label>
+                <select id="city" name="city">
+                    <option value="1">Patna</option>
+                    <option value="2">Aarah</option>
+                    <option value="3">Buxar</option>
+                    <option value="4">Kanpur</option>
+                    <option value="5">Lucknow</option>
+                    <option value="6">Allahabad</option>
+                </select>
+                <label class="label-text-select" for="state">State</label>
+                <select id="state" name="state">
+                    <option value="1">Bihar</option>
+                    <option value="2">Uttar Pradesh</option>
+                    <option value="3">Madhya Pradesh</option>
+                    <option value="4">Jharkhand</option>
+                    <option value="5">West Bengal</option>
+                    <option value="6">Orissa</option>
+                </select>
+                <label class="label-text-select" for="zip">Zip Code</label>
+                <input class="input" type="text" id="zipcode" name="zipcode" placeholder="Zip Code" required>
+
             </div>
             <div class="row-content">
-                <label for="notes" class="label text">Address</label>
-                <textarea class="input text" name="notes" id="address" style="height: 100px;"></textarea>
-            </div>
-            <div class="select-items">
-                <div name="citySelect" id="citySelect" class="selectDiv">
-                    <label for="city" class="label text">City</label>
-                    <select name="city" id="city">
-                        <option value="" disabled selected hidden>Select City</option>
-                        <option value="Saharanpur">Saharanpur</option>
-                        <option value="Lucknow">Lucknow</option>
-                        <option value="Noida">Noida</option>
-                        <option value="Meerut">Meerut</option>
-                        <option value="Mumbai">Mumbai</option>
-                        <option value="Pune">Pune</option>
-                    </select>
-                </div>
-                <div name="stateSelect" id="stateSelect" class="selectDiv">
-                    <label for="state" class="label text">State</label>
-                    <select name="state" id="state">
-                        <option value="" disabled selected hidden>Select State</option>
-                        <option value="Uttar Pradesh">Uttar Pradesh</option>
-                        <option value="Maharashtra">Maharashtra</option>
-                    </select>
-                </div>
-                <div name="zipSelect" id="zipSelect">
-                    <label for="zip" class="label text">ZipCode</label>
-                    <select name="zip" id="zip">
-                        <option value="" disabled selected hidden>Select ZipCode</option>
-                        <option value="247001">247001</option>
-                        <option value="247011">247011</option>
-                        <option value="247031">247031</option>
-                        <option value="247044">247044</option>
-                        <option value="247096">247096</option>
-                        <option value="747001">747001</option>
-                    </select>
-                </div>
-                <!-- <div class="row-content">
-                    <label for="zip" class="label text">ZipCode</label>
-                    <input type="zip" id="zip" name="zip" class="input">
-                    <error-output class="zip-error" for="zip"></error-output>
-                </div> -->
+                <label class="label text" for="phone">Phone Number</label>
+                <input type="tel" id="tel" name="tel" class="input">
+                <error-output class ="text-error" for="text"></error-output>
             </div>
             <div class="buttonParent">
                 <div class="submit-reset">
-                    <button type="submit" class="button submitButton">Add</button>
-                    <button type="reset" class="resetButton button">Reset</button>
+                    <button type="submit" class="button submitButton" id="submitButton">Add</button>
+                    <button type="reset" class="button resetButton">Reset</button>
                 </div>
             </div>
+
         </form>
     </div>
 </body>

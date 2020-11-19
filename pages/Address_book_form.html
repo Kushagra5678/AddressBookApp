@@ -28,7 +28,7 @@
                     <a href="../pages/homePage.html"><img class="cancel-img" src="../assets/cancel.jpeg" alt="Cancel image"></a>
                 </div>
             </div>
-            <!-- <div class="row-content">
+            <div class="row-content">
                 <label for="fullname" class="label text">Full Name</label>
                 <input type="text" class="input" id="fullname" name="fullname" required>
                 <error-output class="text-error" for="text"></error-output>
@@ -37,7 +37,56 @@
                 <label for="tel" class="label text">Phone Number</label>
                 <input type="tel" id="tel" name="tel" class="input">
                 <error-output class="mobno-error" for="tel"></error-output>
-            </div> -->
+            </div>
+            <div class="row-content">
+                <label for="notes" class="label text">Address</label>
+                <textarea class="input text" name="notes" id="address" style="height: 100px;"></textarea>
+            </div>
+            <div class="select-items">
+                <div name="citySelect" id="citySelect" class="selectDiv">
+                    <label for="city" class="label text">City</label>
+                    <select name="city" id="city">
+                        <option value="" disabled selected hidden>Select City</option>
+                        <option value="Saharanpur">Saharanpur</option>
+                        <option value="Lucknow">Lucknow</option>
+                        <option value="Noida">Noida</option>
+                        <option value="Meerut">Meerut</option>
+                        <option value="Mumbai">Mumbai</option>
+                        <option value="Pune">Pune</option>
+                    </select>
+                </div>
+                <div name="stateSelect" id="stateSelect" class="selectDiv">
+                    <label for="state" class="label text">State</label>
+                    <select name="state" id="state">
+                        <option value="" disabled selected hidden>Select State</option>
+                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                    </select>
+                </div>
+                <div name="zipSelect" id="zipSelect">
+                    <label for="zip" class="label text">ZipCode</label>
+                    <select name="zip" id="zip">
+                        <option value="" disabled selected hidden>Select ZipCode</option>
+                        <option value="247001">247001</option>
+                        <option value="247011">247011</option>
+                        <option value="247031">247031</option>
+                        <option value="247044">247044</option>
+                        <option value="247096">247096</option>
+                        <option value="747001">747001</option>
+                    </select>
+                </div>
+                <!-- <div class="row-content">
+                    <label for="zip" class="label text">ZipCode</label>
+                    <input type="zip" id="zip" name="zip" class="input">
+                    <error-output class="zip-error" for="zip"></error-output>
+                </div> -->
+            </div>
+            <div class="buttonParent">
+                <div class="submit-reset">
+                    <button type="submit" class="button submitButton">Add</button>
+                    <button type="reset" class="resetButton button">Reset</button>
+                </div>
+            </div>
         </form>
     </div>
 </body>

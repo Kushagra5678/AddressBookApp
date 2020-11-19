@@ -44,3 +44,45 @@ window.addEventListener('DOMContentLoaded', (event) => {
         }
     });
 });
+
+
+const save = () => {
+    try{
+      let contact = saveData();
+      createAndUpdateStorage(contact);
+    }catch(e){
+      return;
+    }
+ };
+// const save = (event) => {
+//     event.preventDefault();
+//     event.stopPropagation();
+//     try {
+//         setAddressBookContactObject();
+//         window.location.replace(site_properties.home_page);
+//     } catch (e) {
+//         return;
+//     }
+// }
+function saveData(){
+    let contact = new AddressBookContact();
+    contact._fullName = getInputValueById('#fullName');
+    contact._address = getInputValueById('#address');
+    contact._phoneNumber = getInputValueById('#tel');
+    contact._city = getInputValueById('#city');
+    contact._state = getInputValueById('#state');
+    contact._zip = getInputValueById('#zip');
+}
+// const setAddressBookContactObject = () => {
+//     addressBookContact._fullName = getInputValueById('#fullname');
+//     addressBookContact._address = getInputValueById('#address');
+//     addressBookContact._phoneNumber = getInputValueById('#tel');
+//     addressBookContact._city = getInputValueById('#city');
+//     addressBookContact._state = getInputValueById('#state');
+//     addressBookContact._zip = getInputValueById('#zip');
+// }
+
+const getInputValueById = (id) => {
+    let value = document.querySelector(id).value;
+    return value;
+}

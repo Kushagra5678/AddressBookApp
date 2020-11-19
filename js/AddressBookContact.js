@@ -30,6 +30,9 @@ class AddressBookContact {
     get zip() {return this._zip;}
     set zip(zip) {this._zip = zip;}
 
+    get id() {return this._id;}
+    set id(id) {this._id = id;}
+
     get phoneNumber() {return this._phoneNumber;}
     set phoneNumber(phoneNumber) {
         let phPattern = RegExp('((^\\+?)(([0-9]{2,3})(\\s))?)' + '[0-9]{10}$');

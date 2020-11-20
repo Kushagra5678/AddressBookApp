@@ -52,6 +52,7 @@ const save = (event) => {
       let contact = saveData();
       //alert("saved");
       createAndUpdateStorage(contact);
+      resetForm();
     }catch(e){
       return;
     }
@@ -78,8 +79,6 @@ const save = (event) => {
     contact._city = getInputValueById('#city');
     contact._state = getInputValueById('#state');
     contact._zip = getInputValueById('#zip');
-    // createAndUpdateStorage(employee);
-    // alert("Thank you. your data is saved " + contact.toString());
     return contact;
 }
 

@@ -46,16 +46,31 @@ window.addEventListener('DOMContentLoaded', (event) => {
 });
 
 
-const save = () => {
+const save = (event) => {
     try{
+        alert("object created");
       let contact = saveData();
-    //   createAndUpdateStorage(contact);
+      //alert("saved");
+      createAndUpdateStorage(contact);
     }catch(e){
       return;
     }
  };
 
-function saveData(){
+ function createAndUpdateStorage(addContactData) {
+
+    let contactDataList = JSON.parse(localStorage.getItem("ContactDataList"));
+
+    if(contactDataList != undefined) {
+        contactDataList.push(addContactData);
+    } else {
+        contactDataList = [addContactData];
+    }
+    alert(contactDataList.toString());
+    localStorage.setItem("ContactDataList", JSON.stringify(contactDataList));
+}
+
+ const saveData = () =>{
     let contact = new AddressBookContact();
     contact._fullName = getInputValueById('#fullName');
     contact._address = getInputValueById('#address');
@@ -63,6 +78,9 @@ function saveData(){
     contact._city = getInputValueById('#city');
     contact._state = getInputValueById('#state');
     contact._zip = getInputValueById('#zip');
+    // createAndUpdateStorage(employee);
+    // alert("Thank you. your data is saved " + contact.toString());
+    return contact;
 }
 
 

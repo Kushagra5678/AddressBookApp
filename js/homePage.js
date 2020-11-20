@@ -26,12 +26,12 @@ window.addEventListener('DOMContentLoaded',(event) => {
     {
     innerHtml = `${innerHtml}
     <tr>
-        <td>${contactData._firstName}${contactData._lastName}</td>
+        <td>${contactData._fullName}</td>
         <td>${contactData._address}</td>
         <td>${contactData._city}</td>
         <td>${contactData._state}</td>
         <td>${contactData._zip}</td>
-        <td>${contactData._phone}</td>
+        <td>${contactData._phoneNumber}</td>
         <td>
         <img name="${contactData._id}" onclick="remove(this)" alt="delete" 
                 src="../assets/delete-black-18dp.svg">

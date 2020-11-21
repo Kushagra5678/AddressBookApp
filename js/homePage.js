@@ -7,8 +7,8 @@ window.addEventListener('DOMContentLoaded',(event) => {
   });
 
   const getContactDataFromLocalStorage = () => {
-      return localStorage.getItem('ContactDataList') ? 
-                            JSON.parse(localStorage.getItem('ContactDataList')) : [];
+      return localStorage.getItem('ContactList') ? 
+                            JSON.parse(localStorage.getItem('ContactList')) : [];
   }
 
   const createInnerHtml = () => {
@@ -50,7 +50,7 @@ window.addEventListener('DOMContentLoaded',(event) => {
     if(!contact) return;
     const index = contactList.map(cont => cont._id).indexOf(contact._id);
     contactList.splice(index, 1);
-    localStorage.setItem('ContactDataList', JSON.stringify(contactList));
+    localStorage.setItem('ContactList', JSON.stringify(contactList));
     document.querySelector(".person-count").textContent = contactList.length;
     createInnerHtml();
 }

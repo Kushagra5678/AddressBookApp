@@ -1,3 +1,5 @@
+let isUpdate = false;
+let contactObj;
 window.addEventListener('DOMContentLoaded', (event) => {
     const fullname = document.querySelector('#fullName');
     const textError = document.querySelector('.text-error');
@@ -43,6 +45,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
             addressError.textContent = e;
         }
     });
+    checkForUpdate();
 });
 
 
@@ -51,7 +54,6 @@ const save = (event) => {
     try {
         let newContact = createNewContact();
         createAndUpdateStorage(newContact);
-        resetForm();
     } catch (e)
     {
         alert(error);
@@ -98,16 +100,24 @@ const getInputValueById = (id) => {
     return value;
 }
 
-const resetForm = () => {
-    setValue('#fullName', '');
-    setValue('#address', '');
-    setValue('#tel', '');
-    setValue('#city', '');
-    setValue('#state', '');
-    setValue('#zip', '');
-}
+const checkForUpdate = () => {
+    const contactJsonData = localStorage.getItem("editContact");
+    isUpdate = contactJsonData ? true : false;
+    if(!isUpdate) return;
+    contactObj = JSON.parse(contactJsonData);
+    setForm();
+  }
+  
+  const setForm = () => {
+    setValue('#fullName', contactObj._fullName);
+    setValue('#address',contactObj._address);
+    setValue('#city',contactObj._city);
+    setValue('#state',contactObj._state);
+    setValue('#zip',contactObj._zip);
+    setValue('#tel',contactObj._phoneNumber);
+  }
 
-const setValue = (id, value) => {
-    const element = document.querySelector(id);
-    element.value = value;
-}
+  const setValue = (id, value) => {
+      const element = document.querySelector(id);
+      element.value = value;      
+  }

@@ -1,8 +1,9 @@
+let contactList;
 window.addEventListener('DOMContentLoaded',(event) => {
     contactList = getContactDataFromLocalStorage();
     document.querySelector(".person-count").textContent = contactList.length;
     createInnerHtml();
-    localStorage.removeItem('editEmp');
+    localStorage.removeItem('editContact');
   });
 
   const getContactDataFromLocalStorage = () => {
@@ -49,7 +50,15 @@ window.addEventListener('DOMContentLoaded',(event) => {
     if(!contact) return;
     const index = contactList.map(cont => cont._id).indexOf(contact._id);
     contactList.splice(index, 1);
-    document.querySelector(".person-count").textContent = contactList.length;
     localStorage.setItem('ContactDataList', JSON.stringify(contactList));
+    document.querySelector(".person-count").textContent = contactList.length;
     createInnerHtml();
+}
+
+const update = (node) => {
+  let contact = contactList.find(cont => cont._id == node.id);
+  if(!contact) return;
+  localStorage.setItem("editContact",JSON.stringify(contact));
+  window.location.replace("../pages/Address_book_form.html");
+
 }

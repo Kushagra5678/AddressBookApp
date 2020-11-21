@@ -13,7 +13,7 @@ class AddressBookContact {
     get address() { return this._address; }
     set address(address) {
         let words = address.split(" ");
-        let addressPattern = RegExp('([A-Z a-z 0-9]{3,})+');
+        let addressPattern = RegExp('([A-Z a-z 0-9 \\s]{3,})+');
         for (const word of words) {
             if (!addressPattern.test(word))
                 throw 'Invalid Address';

@@ -33,9 +33,9 @@ window.addEventListener('DOMContentLoaded',(event) => {
         <td>${contactData._zip}</td>
         <td>${contactData._phoneNumber}</td>
         <td>
-        <img name="${contactData._id}" onclick="remove(this)" alt="delete" 
+        <img id="${contactData._id}" onclick="remove(this)" alt="delete" 
                 src="../assets/delete-black-18dp.svg">
-        <img name="${contactData._id}" alt="edit" onclick="update(this)"
+        <img id="${contactData._id}" alt="edit" onclick="update(this)"
                 src="../assets/create-black-18dp.svg">
         </td>
     </tr>
@@ -43,3 +43,13 @@ window.addEventListener('DOMContentLoaded',(event) => {
     }
   document.querySelector('#table-display').innerHTML = innerHtml;
   } 
+
+  const remove = (node) => {
+    let contact = contactList.find(cont => cont._id == node.id);
+    if(!contact) return;
+    const index = contactList.map(cont => cont._id).indexOf(contact._id);
+    contactList.splice(index, 1);
+    document.querySelector(".person-count").textContent = contactList.length;
+    localStorage.setItem('ContactDataList', JSON.stringify(contactList));
+    createInnerHtml();
+}

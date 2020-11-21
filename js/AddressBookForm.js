@@ -47,16 +47,16 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 
 const save = (event) => {
-    try{
-        alert("object created");
-      let contact = saveData();
-      //alert("saved");
-      createAndUpdateStorage(contact);
-      resetForm();
-    }catch(e){
-      return;
+    alert("saved");
+    try {
+        let newContact = createNewContact();
+        createAndUpdateStorage(newContact);
+        resetForm();
+    } catch (e)
+    {
+        alert(error);
     }
- };
+};
 
  function createAndUpdateStorage(addContactData) {
 
@@ -71,8 +71,18 @@ const save = (event) => {
     localStorage.setItem("ContactDataList", JSON.stringify(contactDataList));
 }
 
- const saveData = () =>{
+const createNewContact = () => {
+    let contactList = JSON.parse(localStorage.getItem('ContactDataList'));
+    let max = 0;
+    if(contactList) {
+        for(const contactTemp of contactList){
+            if(max < contactTemp._id) {
+                max = contactTemp._id;
+            }
+        }
+    }
     let contact = new AddressBookContact();
+    contact.id = parseInt(max) + 1;
     contact._fullName = getInputValueById('#fullName');
     contact._address = getInputValueById('#address');
     contact._phoneNumber = getInputValueById('#tel');
